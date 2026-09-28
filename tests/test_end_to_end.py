@@ -69,7 +69,7 @@ def test_matched_run_outputs_cache_and_oracle(project):
               "comparisons/index.csv", "sr4rec.yaml", "fingerprint.yaml", "lr/test"]:
         assert (d / f).exists(), f
     assert (d / "table.tex").read_text(encoding="utf-8").isascii(), "table.tex must compile with plain pdflatex"
-    fp = yaml.safe_load((d / "fingerprint.yaml").read_text())
+    fp = yaml.safe_load((d / "fingerprint.yaml").read_text(encoding="utf-8"))
     for k in ("config", "seeds", "environment", "dataset", "sr_models", "sr4rec_version"):
         assert k in fp
     assert fp["dataset"]["labels_csv_sha256"] and fp["dataset"]["split_csv_sha256"]
@@ -105,7 +105,7 @@ def test_native_fixed_recognizer_run(tmp_path):
     lines, log = logs()
     res = Run(parse_config(cfg, tmp_path), log=log).execute()
     assert sum("Training" in x for x in lines) == 2  # one recognizer per backbone and seed
-    text = (res.run_dir / "report.md").read_text()
+    text = (res.run_dir / "report.md").read_text(encoding="utf-8")
     assert "n/a (no HR reference in native-lr mode)" in text and "HR (upper bound) |" not in text
     assert "protocol fixed_recognizer" in text and not (res.run_dir / "lr").exists()
 

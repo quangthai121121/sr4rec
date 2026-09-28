@@ -15,7 +15,7 @@ from sr4rec.reproduce import compare, list_demos, load_demo
 def test_init_writes_config_and_refuses_overwrite(toy, tmp_path, monkeypatch, capsys):
     monkeypatch.chdir(tmp_path)
     assert main(["init", "data/toy"]) == 0
-    text = (tmp_path / "sr4rec.yaml").read_text()
+    text = (tmp_path / "sr4rec.yaml").read_text(encoding="utf-8")
     assert "dataset: data/toy" in text and "[CHECK]" in text and "mode: native-lr" in text
     assert main(["init", "data/toy"]) == 1
     assert "already exists" in capsys.readouterr().err
@@ -51,8 +51,8 @@ def test_reproduce_unknown_and_unfrozen(tmp_path, monkeypatch, capsys):
     assert main(["reproduce", "quickstart"]) == 3
     dumped = tmp_path / "runs" / "quickstart_config.yaml"
     assert dumped.is_file()
-    cfg = yaml.safe_load(dumped.read_text())
-    assert cfg["dataset"].endswith("examples/data/pets_mini")
+    cfg = yaml.safe_load(dumped.read_text(encoding="utf-8"))
+    assert cfg["dataset"].replace("\\", "/").endswith("examples/data/pets_mini")
 
 
 def test_all_demo_configs_are_valid(tmp_path):

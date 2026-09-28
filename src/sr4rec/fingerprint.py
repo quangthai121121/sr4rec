@@ -19,7 +19,7 @@ PACKAGES = ("torch", "torchvision", "timm", "spandrel", "numpy", "pandas", "pill
 
 def cpu_name() -> str:
     try:
-        for line in Path("/proc/cpuinfo").read_text().splitlines():
+        for line in Path("/proc/cpuinfo").read_text(encoding="utf-8").splitlines():
             if line.lower().startswith("model name"):
                 return line.split(":", 1)[1].strip()
     except OSError:

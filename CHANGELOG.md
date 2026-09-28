@@ -5,7 +5,20 @@ the configuration format; every change is listed here, and old configurations fa
 message instead of being read differently. Report numbers only change between versions when this
 file says so.
 
-## [0.1.0] - unreleased
+## [0.1.1] - 2026-09-28
+
+### Added
+- Published recognizer checkpoints for `d1_earvn`, `d1_earvn_fixed`, `d2_lfw` and `d3_cub`,
+  fetchable with `scripts/fetch_checkpoints.py <demo>`, so `sr4rec reproduce <demo> --eval-only`
+  works without retraining.
+
+### Fixed
+- Windows: a test asserted a POSIX-style dataset path instead of accepting the platform-native
+  separator, and another read a report file without an explicit encoding, which failed on the
+  default Windows code page for non-ASCII report characters. Also added explicit UTF-8 encoding
+  to the split cache key file and the `/proc/cpuinfo` read for consistency.
+
+## [0.1.0] - 2026-09-28
 
 ### Added
 - Commands `sr4rec init`, `sr4rec run [--dry-run]` and `sr4rec reproduce <demo> [--eval-only]`.

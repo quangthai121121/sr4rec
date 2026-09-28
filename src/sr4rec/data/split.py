@@ -188,7 +188,7 @@ def make_split(ds: Dataset, cfg: SplitConfig, cache_dir: Path | None = None) -> 
         folder = cache_dir / "splits" / stable_key("dataset-location", str(ds.root))[:16]
         stored = folder / f"split_{key[:16]}.csv"
         last = folder / "last_key.txt"
-        if last.is_file() and last.read_text().strip() != key:
+        if last.is_file() and last.read_text(encoding="utf-8").strip() != key:
             warnings.append("The data or the split block changed since the previous run on this dataset, so the split differs from that run.")
     moved = 0
     if stored is not None and stored.is_file():
@@ -202,7 +202,7 @@ def make_split(ds: Dataset, cfg: SplitConfig, cache_dir: Path | None = None) -> 
         stored.parent.mkdir(parents=True, exist_ok=True)
         if not stored.is_file():
             table.to_csv(stored, index=False)
-        (stored.parent / "last_key.txt").write_text(key)
+        (stored.parent / "last_key.txt").write_text(key, encoding="utf-8")
     counts = {s: int((table["split"] == s).sum()) for s in ("train", "val", "test")}
     count_text = f"train {counts['train']:,} / val {counts['val']:,} / test {counts['test']:,} images"
     if source == "ratios":
