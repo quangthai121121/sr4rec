@@ -1,0 +1,4 @@
+{
+  "_comment": "Published recognizer checkpoints for `sr4rec reproduce <demo> --eval-only`. Filled in at release time by scripts/export_checkpoints.py; each file entry has name, url and sha256.",
+  "demos": {}
+}

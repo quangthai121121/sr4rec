@@ -1,0 +1,34 @@
+# Expected results of demo d3_cub, frozen from reproduce_d3_cub.
+demo: d3_cub
+frozen: true
+metrics:
+- backbone: resnet18
+  method: bicubic
+  metric: rank1
+  value_pct: 60.4936
+  tolerance_pp: 0.2
+- backbone: resnet18
+  method: realesrgan
+  metric: rank1
+  value_pct: 58.0255
+  tolerance_pp: 0.2
+- backbone: resnet18
+  method: swinir_classical
+  metric: rank1
+  value_pct: 61.6155
+  tolerance_pp: 0.2
+- backbone: resnet18
+  method: swinir_realworld
+  metric: rank1
+  value_pct: 57.387
+  tolerance_pp: 0.2
+- backbone: resnet18
+  method: span
+  metric: rank1
+  value_pct: 61.7363
+  tolerance_pp: 0.2
+- backbone: resnet18
+  method: hr
+  metric: rank1
+  value_pct: 63.3586
+  tolerance_pp: 0.2

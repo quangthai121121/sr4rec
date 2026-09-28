@@ -1,0 +1,10 @@
+{
+  "title": "SR4Rec: a toolkit for measuring whether super-resolution helps closed-set recognition",
+  "upload_type": "software",
+  "license": "MIT",
+  "creators": [
+    {"name": "Le Quang, Thai"},
+    {"name": "Hoang, V. T."}
+  ],
+  "keywords": ["super-resolution", "image recognition", "biometrics", "evaluation", "reproducibility"]
+}
