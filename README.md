@@ -80,11 +80,18 @@ downloads SR weights; you provide them.
 ## 3. Quick start
 
 No dataset or SR weights yet? Build the small shipped demo once (needs your own copy of
-[Oxford-IIIT Pet](https://www.robots.ox.ac.uk/~vgg/data/pets/)) and run it end to end in under a
-minute — see "quickstart" in [Reproducing the demos](#8-reproducing-the-demos):
+[Oxford-IIIT Pet](https://www.robots.ox.ac.uk/~vgg/data/pets/), the `images.tar.gz` and
+`annotations.tar.gz` archives) and run it end to end in under a minute — see "quickstart" in
+[Reproducing the demos](#8-reproducing-the-demos):
 
 ```bash
-python scripts/make_examples.py --pets <path_to_oxford_iiit_pet>
+mkdir oxford_pet && cd oxford_pet
+curl -LO https://thor.robots.ox.ac.uk/pets/images.tar.gz
+curl -LO https://thor.robots.ox.ac.uk/pets/annotations.tar.gz
+tar xzf images.tar.gz && tar xzf annotations.tar.gz
+cd ..
+
+python scripts/make_examples.py --pets oxford_pet
 python examples/sr_models/train_tiny_espcn.py
 sr4rec reproduce quickstart
 ```
@@ -109,6 +116,9 @@ sr4rec init data/my_dataset/        # 1. validate the dataset, write ./sr4rec.ya
 sr4rec run sr4rec.yaml --dry-run    #    check everything in under a minute
 sr4rec run sr4rec.yaml              # 3. run; then open runs/<run_name>/report.md
 ```
+
+Formatting your images and labels: [Preparing your dataset](#4-preparing-your-dataset). Providing
+the SR weights that go under `sr:`: [Adding SR models](#5-adding-sr-models).
 
 Every path in `sr4rec.yaml` is relative to the folder that contains it (or absolute), so the whole
 project folder can be moved to another machine. `sr4rec run` refuses to start while a `[CHECK]`
