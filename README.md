@@ -85,6 +85,7 @@ minute — see "quickstart" in [Reproducing the demos](#8-reproducing-the-demos)
 
 ```bash
 python scripts/make_examples.py --pets <path_to_oxford_iiit_pet>
+python examples/sr_models/train_tiny_espcn.py
 sr4rec reproduce quickstart
 ```
 
@@ -246,9 +247,12 @@ sr4rec reproduce d1_earvn                        # level 2: full re-training on 
 
 `sr4rec reproduce <demo>` needs that demo's dataset and SR weights to be present locally; without
 them it exits with code 3 and writes the demo configuration to `runs/<demo>_config.yaml`, which you
-can then run with `sr4rec run`. `sr4rec reproduce quickstart` needs no external SR weights or
-checkpoints, only the small `pets_mini` dataset built once with
-`python scripts/make_examples.py --pets <path_to_oxford_iiit_pet>` ([Quick start](#3-quick-start));
+can then run with `sr4rec run`. `sr4rec reproduce quickstart` needs no downloaded checkpoints,
+only the small `pets_mini` dataset and the example SR weights built once ([Quick start](#3-quick-start)):
+```bash
+python scripts/make_examples.py --pets <path_to_oxford_iiit_pet>
+python examples/sr_models/train_tiny_espcn.py
+```
 after that it retrains on the spot in under a minute. Exit codes: **0** within tolerance, **2**
 outside tolerance, **3** missing data/weights/checkpoints, **1** any other error. Reference
 hardware: [docs/reference_environment.md](docs/reference_environment.md).
