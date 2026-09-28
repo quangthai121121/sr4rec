@@ -41,7 +41,7 @@ class SpandrelSR(SRSource):
                 "Every SR model in a run must have exactly the configured scale."
             )
         sha = sha256_file(weights)
-        info = validated.lookup(sha, weights.name)
+        info = validated.lookup(sha)
         super().__init__(
             name=name, kind="weights", scale=scale, key=f"weights:{sha}:tile{tile}", files={str(weights): sha},
             description=f"weights  {desc.architecture.name} (spandrel)  sha256 {sha[:7]}...",

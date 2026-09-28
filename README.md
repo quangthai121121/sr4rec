@@ -239,10 +239,10 @@ Demo definitions and expected results are shipped with the package (`sr4rec repr
 | Demo | Dataset | Setting | What it demonstrates |
 |---|---|---|---|
 | `quickstart` | pets_mini | synthetic x4, CPU | a small end-to-end run, under a minute |
-| `d1_earvn` | EarVN1.0 | native-lr x4, matched, ResNet-18, 3 seeds | main result, results by image size |
+| `d1_earvn` | [EarVN1.0](https://data.mendeley.com/datasets/yws3v3mwx3/4) | native-lr x4, matched, ResNet-18, 3 seeds | main result, results by image size |
 | `d1_earvn_fixed` | EarVN1.0 | as `d1_earvn` with protocol `fixed_recognizer` | what the protocol changes |
-| `d2_lfw` | LFW (>= 20 images per person) | synthetic x4, matched, ResNet-18, 3 seeds | does PSNR/SSIM predict recognition |
-| `d3_cub` | CUB-200-2011 | synthetic x4, matched, ResNet-18, 1 seed | another domain (single run) |
+| `d2_lfw` | [LFW](https://www.kaggle.com/datasets/atulanandjha/lfwpeople) (>= 20 images per person) | synthetic x4, matched, ResNet-18, 3 seeds | does PSNR/SSIM predict recognition |
+| `d3_cub` | [CUB-200-2011](https://data.caltech.edu/records/65de6-vp158) | synthetic x4, matched, ResNet-18, 1 seed | another domain (single run) |
 
 ```bash
 python scripts/prepare_earvn.py --earvn <path> --out data/earvn

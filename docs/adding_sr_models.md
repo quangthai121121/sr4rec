@@ -87,7 +87,7 @@ file and of the weights are written to `fingerprint.yaml`.
 | Real-ESRGAN x4plus | `RealESRGAN_x4plus.pth` | real-world degradation | `4fa0d38905f75ac06eb49a7951b426670021be3018265fd191d2125df9d682f1` |
 | SwinIR-M x4 (classical) | `001_classicalSR_DIV2K_s48w8_SwinIR-M_x4.pth` | bicubic degradation | `129dc773ba2d4c07f3eb0bb116fbe692011b7cc072d9ca12797cd3748198610a` |
 | SwinIR-M x4 (real-world, GAN) | `003_realSR_BSRGAN_DFO_s64w8_SwinIR-M_x4_GAN.pth` | real-world degradation | `b9afb61e65e04eb7f8aba5095d070bbe9af28df76acd0c9405aeb33b814bcfc6` |
-| SPAN x4 (ch48) | `spanx4_ch48.pth` | bicubic degradation | recognised by file name; hash to be recorded |
+| SPAN x4 (ch48) | `spanx4_ch48.pth` | bicubic degradation | `28fef8c6c845a0169afed9f9f566679990ef4c03fef9885298655fb5e4036402` |
 
 Download pages: Real-ESRGAN <https://github.com/xinntao/Real-ESRGAN/releases/tag/v0.1.0>,
 SwinIR <https://github.com/JingyunLiang/SwinIR/releases/tag/v0.0>, SPAN

@@ -8,7 +8,8 @@ Used by example 08.
 follow the terms of the original dataset and the data-protection rules that apply where you work,
 and use this example for research only. Do not use SR4Rec to identify people outside research.
 
-Download LFW from its official page (<http://vis-www.cs.umass.edu/lfw/>) and build the subset:
+Download LFW from Kaggle (<https://www.kaggle.com/datasets/atulanandjha/lfwpeople>) and build the
+subset:
 
 ```bash
 python scripts/make_examples.py --lfw <path_to_lfw>
