@@ -62,8 +62,6 @@ Apple-silicon GPUs (MPS) are supported; the examples run on a CPU. With `runtime
 SR4Rec uses a CUDA GPU if there is one, otherwise an Apple GPU, otherwise the CPU.
 
 ```bash
-pip install sr4rec                      # from PyPI (after the first release)
-# or from source
 git clone https://github.com/quangthai121121/sr4rec.git
 cd sr4rec
 pip install -e ".[dev]"

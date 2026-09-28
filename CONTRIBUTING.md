@@ -44,5 +44,4 @@ its CPU latency is measured, and its licence allows research use. Add it to
 ## Maintenance
 
 Issues are triaged at least monthly. Supported Python versions follow the scientific Python
-ecosystem (currently 3.10-3.12). Releases are tagged on GitHub, archived on Zenodo and published
-on PyPI.
+ecosystem (currently 3.10-3.12). Releases are tagged on GitHub and archived on Zenodo.

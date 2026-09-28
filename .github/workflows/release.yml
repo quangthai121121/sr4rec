@@ -18,16 +18,3 @@ jobs:
         with:
           name: dist
           path: dist/
-
-  pypi:
-    needs: build
-    runs-on: ubuntu-latest
-    environment: pypi
-    permissions:
-      id-token: write   # PyPI trusted publishing
-    steps:
-      - uses: actions/download-artifact@v4
-        with:
-          name: dist
-          path: dist/
-      - uses: pypa/gh-action-pypi-publish@release/v1
