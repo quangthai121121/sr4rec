@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use SR4Rec, please cite it as below."
-title: "SR4Rec: a toolkit for measuring whether super-resolution helps closed-set recognition"
+title: "SR4Rec: A reproducible toolkit for measuring whether super-resolution helps closed-set image recognition"
 type: software
 version: 0.1.2
 license: MIT

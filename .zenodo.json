@@ -1,5 +1,5 @@
 {
-  "title": "SR4Rec: a toolkit for measuring whether super-resolution helps closed-set recognition",
+  "title": "SR4Rec: A reproducible toolkit for measuring whether super-resolution helps closed-set image recognition",
   "upload_type": "software",
   "license": "MIT",
   "creators": [

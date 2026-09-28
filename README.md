@@ -271,7 +271,7 @@ If you use SR4Rec, please cite the software (see [CITATION.cff](CITATION.cff)):
 
 ```bibtex
 @software{sr4rec,
-  title   = {SR4Rec: a toolkit for measuring whether super-resolution helps closed-set recognition},
+  title   = {SR4Rec: A reproducible toolkit for measuring whether super-resolution helps closed-set image recognition},
   author  = {Le Quang, Thai and Truong Hoang, Vinh},
   year    = {2026},
   version = {0.1.2},
