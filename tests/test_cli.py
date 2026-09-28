@@ -56,7 +56,7 @@ def test_reproduce_missing_local_inputs(tmp_path, monkeypatch, capsys):
     # examples/data/pets_mini and the example SR weights it still cannot run.
     monkeypatch.chdir(tmp_path)
     assert main(["reproduce", "quickstart"]) == 3
-    err = capsys.readouterr().err
+    err = capsys.readouterr().err.replace("\\", "/")
     assert "Demo inputs are missing" in err and "examples/data/pets_mini" in err
 
 
