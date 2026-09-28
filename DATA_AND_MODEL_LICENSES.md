@@ -16,7 +16,7 @@ Check each official page for the current terms before use.
 | TinyFace (documentation only) | none shipped | no terms stated; contact the authors | Cheng et al., ACCV 2018 |
 
 Face images are biometric data: use them for research only and follow the data-protection rules
-that apply to you. No face image is included in the repository or in the paper figures.
+that apply to you. No face image is included in this repository.
 
 ## SR weights (validated)
 

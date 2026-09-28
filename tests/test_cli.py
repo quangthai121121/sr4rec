@@ -45,14 +45,19 @@ def test_bad_config_exit_code(tmp_path, capsys):
     assert "'native_lr' is not allowed. Allowed values: synthetic, native-lr" in capsys.readouterr().err
 
 
-def test_reproduce_unknown_and_unfrozen(tmp_path, monkeypatch, capsys):
+def test_reproduce_unknown_demo(tmp_path, monkeypatch, capsys):
     monkeypatch.chdir(tmp_path)
     assert main(["reproduce", "nope"]) == 1
+    assert "Unknown demo" in capsys.readouterr().err
+
+
+def test_reproduce_missing_local_inputs(tmp_path, monkeypatch, capsys):
+    # quickstart is frozen (expected results ship with the package); without a local
+    # examples/data/pets_mini and the example SR weights it still cannot run.
+    monkeypatch.chdir(tmp_path)
     assert main(["reproduce", "quickstart"]) == 3
-    dumped = tmp_path / "runs" / "quickstart_config.yaml"
-    assert dumped.is_file()
-    cfg = yaml.safe_load(dumped.read_text(encoding="utf-8"))
-    assert cfg["dataset"].replace("\\", "/").endswith("examples/data/pets_mini")
+    err = capsys.readouterr().err
+    assert "Demo inputs are missing" in err and "examples/data/pets_mini" in err
 
 
 def test_all_demo_configs_are_valid(tmp_path):

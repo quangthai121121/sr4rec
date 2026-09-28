@@ -1,4 +1,4 @@
-"""Tiny generated datasets for the tests only (never used in examples, README or the paper).
+"""Tiny generated datasets for the tests only (never used in examples or the README).
 
 Each class has its own colour and stripe orientation, so that even a small
 recognizer trained for a few epochs on the CPU separates the classes.

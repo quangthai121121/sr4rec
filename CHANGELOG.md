@@ -5,6 +5,18 @@ the configuration format; every change is listed here, and old configurations fa
 message instead of being read differently. Report numbers only change between versions when this
 file says so.
 
+## [0.1.2] - unreleased
+
+### Added
+- `requirements.lock`, a pinned snapshot of one known-working dependency set, and real
+  reference-machine values (CPU, OS, PyTorch/CUDA, GPU) in `docs/reference_environment.md`.
+- Frozen expected results for the `quickstart` demo, so `sr4rec reproduce quickstart` grades
+  against real tolerances instead of always reporting that the demo is not frozen.
+
+### Fixed
+- `scripts/freeze_expected.py` crashed with a YAML `RepresenterError` when a metric value was a
+  numpy scalar instead of a native Python float; values are now converted before being written.
+
 ## [0.1.1] - 2026-09-28
 
 ### Added

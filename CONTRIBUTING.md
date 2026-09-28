@@ -37,7 +37,7 @@ pull request with a small experiment.
 
 ## Adding a validated backbone
 
-The timm model trains with the fixed recipe on `pets_mini` and one paper dataset without changes,
+The timm model trains with the fixed recipe on `pets_mini` and one of the shipped demo datasets without changes,
 its CPU latency is measured, and its licence allows research use. Add it to
 `VALIDATED_BACKBONES` in `src/sr4rec/config.py`.
 
