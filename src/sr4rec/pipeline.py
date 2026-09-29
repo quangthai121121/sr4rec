@@ -36,7 +36,7 @@ from .fingerprint import environment, now_text
 from .lr.letterbox import PREPROCESS_VERSION
 from .lr.resize import RESIZE_VERSION, downsample
 from .rec.data import Item
-from .rec.engine import predict, time_training_step, train_recognizer
+from .rec.engine import predict, set_determinism, time_training_step, train_recognizer
 from .rec.models import check_backbone_name
 from .sr.base import SRSource
 from .sr.folder_source import FolderSR
@@ -543,6 +543,11 @@ class Run:
         if self.dry_run:
             text = self.dry_run_report()
             return RunResult(None, None, dry_run_text=text)
+        # SR inference has no seed of its own, but cuDNN's default convolution algorithms are
+        # not deterministic between runs; without this, SR outputs (and everything computed
+        # from them) can drift slightly even on identical hardware. train_recognizer() sets the
+        # same flags again per seed; that call is idempotent for them.
+        set_determinism(0)
         sources, _ = self.load_sources()
         self._add_source_warnings()
         run_dir = self._run_dir()

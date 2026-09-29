@@ -39,14 +39,12 @@ images/ + labels.csv ──> split ──> LR images ──> bicubic | SR model 
 
 What SR4Rec enforces for you:
 
-- the same test images and the same preprocessing for every method: letterbox to a square (aspect
-  ratio kept, never stretched, ImageNet-mean padding) and ImageNet normalization;
-- a closed-set split in which every class is in train, val and test and no image (not even a
-  renamed copy) is in two splits; checkpoints chosen on val, never on test;
-- protocol `matched` by default: the recognizer of each SR model is trained on images that went
-  through that SR model;
-- paired statistics over test images (bootstrap CI, sign-flip permutation test, Holm correction)
-  and a verdict per SR model and backbone, also by image size;
+- the same test images and preprocessing for every method (letterbox, ImageNet normalization; see
+  [Methods](docs/methods.md));
+- a closed-set split: every class is in train, val and test; no image is in two splits;
+- protocol `matched` by default: each SR model's recognizer trains on that model's own images;
+- paired statistics per SR model and backbone (bootstrap CI, sign-flip permutation, Holm
+  correction), also by image size;
 - a fingerprint (versions, hardware, data and weight hashes) for every run.
 
 Three commands only: `sr4rec init`, `sr4rec run`, `sr4rec reproduce`.
@@ -125,9 +123,10 @@ project folder can be moved to another machine. `sr4rec run` refuses to start wh
 marker remains. Running again reuses every cached step (SR outputs and trained recognizers); adding
 an SR model trains only the recognizers of that model.
 
-Tip for large studies (protocol `matched` trains one recognizer per SR model, backbone and seed;
-`--dry-run` prints the number of trainings and an estimated time): screen many SR models first with
-`protocol: fixed_recognizer`, then run `matched` on the promising ones.
+Protocol `matched` trains one recognizer per SR model, backbone and seed, so it gets expensive with
+many SR models. For large studies, screen them first with `protocol: fixed_recognizer`, then run
+`matched` on the promising ones; `--dry-run` prints the training count and an estimated time either
+way.
 
 Python API (identical results to the CLI):
 
@@ -255,28 +254,35 @@ sr4rec reproduce d1_earvn --eval-only
 sr4rec reproduce d1_earvn                        # level 2: full re-training on a GPU
 ```
 
-`sr4rec reproduce <demo>` needs that demo's dataset and SR weights to be present locally; without
-them it exits with code 3 and writes the demo configuration to `runs/<demo>_config.yaml`, which you
-can then run with `sr4rec run`. `sr4rec reproduce quickstart` needs no downloaded checkpoints,
-only the small `pets_mini` dataset and the example SR weights built once ([Quick start](#3-quick-start)):
+`sr4rec reproduce <demo>` needs that demo's dataset and SR weights locally. Without them it exits
+with code 3 and writes the demo configuration to `runs/<demo>_config.yaml`, which you can then run
+with `sr4rec run`.
+
+`sr4rec reproduce quickstart` needs no downloaded checkpoints — only the `pets_mini` dataset and
+the example SR weights, built once ([Quick start](#3-quick-start)):
 ```bash
 python scripts/make_examples.py --pets <path_to_oxford_iiit_pet>
 python examples/sr_models/train_tiny_espcn.py
 ```
-after that it retrains on the spot in under a minute. Exit codes: **0** within tolerance, **2**
-outside tolerance, **3** missing data/weights/checkpoints, **1** any other error. Reference
-hardware: [docs/reference_environment.md](docs/reference_environment.md).
+After that it retrains on the spot in under a minute.
+
+Exit codes: **0** within tolerance, **2** outside tolerance, **3** missing data/weights/checkpoints,
+**1** any other error. Reference hardware: [docs/reference_environment.md](docs/reference_environment.md).
 
 ## 9. Limitations, roadmap, contributing, licences
 
-Limitations of v0.1: closed-set identification only (no verification or open-set protocols, no
-attribute classification); one scale per run; a fixed training recipe (chosen for fair comparison,
-sensitivity checked in demo D6); PSNR/SSIM only in synthetic mode; CPU latency only for methods 1
-and 2. Roadmap: verification protocols, attribute tasks, multiple scales per run, more validated SR
-models and backbones. Contributions are welcome, see [CONTRIBUTING.md](CONTRIBUTING.md) (including
-the criteria for adding a validated SR model or backbone) and [CHANGELOG.md](CHANGELOG.md) for the
-versioning policy (semantic versioning). FAQ: [docs/faq.md](docs/faq.md). Licences, sources and
-citations of every dataset, weight file and checkpoint:
+**Limitations of v0.1**: closed-set identification only, no verification or open-set protocols, no
+attribute classification; one scale per run; a fixed training recipe (sensitivity checked in demo
+D6); PSNR/SSIM only in synthetic mode; CPU latency only for methods 1 and 2.
+
+**Roadmap**: verification protocols, attribute tasks, multiple scales per run, more validated SR
+models and backbones.
+
+**Contributing**: see [CONTRIBUTING.md](CONTRIBUTING.md) (including the criteria for a validated SR
+model or backbone) and [CHANGELOG.md](CHANGELOG.md) for the versioning policy. FAQ:
+[docs/faq.md](docs/faq.md).
+
+**Licences**: sources and citations of every dataset, weight file and checkpoint are in
 [DATA_AND_MODEL_LICENSES.md](DATA_AND_MODEL_LICENSES.md).
 
 ## 10. Citation, license, acknowledgements

@@ -40,9 +40,10 @@ The `split` block of `sr4rec.yaml` chooses where the split comes from:
 
 Rounding, per class of n images: test = max(1, floor(n x test + 0.5)), val = max(1, floor(n x val +
 0.5)), train = the rest, which must be at least 1. Classes that are too small are listed with the
-minimum number of images they need (3 with the default ratios). The split uses `split.seed`, which
-is independent of the recognizer seeds, is stored as `split.csv` in every run folder and is reused
-while the data and the `split` block do not change.
+minimum number of images they need (3 with the default ratios).
+
+The split uses `split.seed`, independent of the recognizer seeds. It is stored as `split.csv` in
+every run folder and reused as long as the data and the `split` block do not change.
 
 When SR4Rec creates or completes the split, identical images (same SHA-256, even under another
 file name) are always placed in the same split. When the split comes from your `split` column,
