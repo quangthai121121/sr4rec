@@ -1,4 +1,4 @@
-"""Convert EarVN1.0 to the SR4Rec format for demo D3 (native-lr, all images at their original size).
+"""Convert EarVN1.0 to the SR4Rec format for demo D1 (`d1_earvn`; native-lr, all images at their original size).
 
 Input: one sub-folder per identity (for example Images/001.NAME/...). The label is the part of the
 folder name before the first dot. Output: <out>/images/<label>/<file> and <out>/labels.csv

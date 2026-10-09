@@ -9,7 +9,7 @@ below. `fingerprint.yaml` of each run records the same fields, so any run can be
 | CPU (latency) | 13th Gen Intel(R) Core(TM) i7-13700F |
 | Operating system | Ubuntu 24.04.1 LTS |
 | Python / PyTorch / CUDA | Python 3.12.3, PyTorch 2.11.0, CUDA 13.0 |
-| SR4Rec | 0.1.1 |
+| SR4Rec | 0.1.0 |
 
 Tolerances: full re-training `max(0.2 pp, 3 x sd over seeds)` per backbone and method;
 `--eval-only` 0.01 pp (four decimals of the accuracy on the same type of hardware).

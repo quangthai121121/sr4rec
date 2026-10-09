@@ -14,7 +14,7 @@ data/<dataset_name>/
 | Column | Required | Rule |
 |---|---|---|
 | `path` | yes | path relative to `images/`, with `/`, unique |
-| `label` | yes | the class to recognise (an identity, a species, ...), any string |
+| `label` | yes | the class to recognize (an identity, a species, ...), any string |
 | `split` | no | `train`, `val` or `test` |
 
 - Image formats: `.jpg`, `.jpeg`, `.png`, `.bmp`. Grayscale and other modes are converted to RGB

@@ -1,13 +1,13 @@
 # SR4Rec
 
-[![CI](https://github.com/quangthai121121/sr4rec/actions/workflows/ci.yml/badge.svg)](https://github.com/quangthai121121/sr4rec/actions/workflows/ci.yml)
+[![CI](https://github.com/hubthailq/sr4rec/actions/workflows/ci.yml/badge.svg)](https://github.com/hubthailq/sr4rec/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)](pyproject.toml)
 
 **Does placing a super-resolution (SR) model in front of a recognizer improve closed-set
 recognition, compared with plain bicubic upscaling?** SR4Rec answers this question for your own
-dataset and your own SR models with one configuration file and three commands, under a fixed,
-statistically sound protocol, and writes a report that can be read on its own.
+dataset and your own SR models with one configuration file and three commands, under a fixed
+protocol, and writes a report from the results.
 
 ## Contents
 
@@ -19,8 +19,8 @@ statistically sound protocol, and writes a report that can be read on its own.
 6. [Examples](#6-examples)
 7. [Configuration and reports](#7-configuration-and-reports)
 8. [Reproducing the demos](#8-reproducing-the-demos)
-9. [Limitations, roadmap, contributing, licences](#9-limitations-roadmap-contributing-licences)
-10. [Citation, license, acknowledgements](#10-citation-license-acknowledgements)
+9. [Limitations, roadmap, contributing, licenses](#9-limitations-roadmap-contributing-licenses)
+10. [Citation and license](#10-citation-and-license)
 
 ## 1. Overview
 
@@ -37,7 +37,7 @@ images/ + labels.csv ──> split ──> LR images ──> bicubic | SR model 
         ──> report.md, CSV files, plots, LaTeX table, before/after-SR panels
 ```
 
-What SR4Rec enforces for you:
+Every run uses:
 
 - the same test images and preprocessing for every method (letterbox, ImageNet normalization; see
   [Methods](docs/methods.md));
@@ -56,7 +56,7 @@ Apple-silicon GPUs (MPS) are supported; the examples run on a CPU. With `runtime
 SR4Rec uses a CUDA GPU if there is one, otherwise an Apple GPU, otherwise the CPU.
 
 ```bash
-git clone https://github.com/quangthai121121/sr4rec.git
+git clone https://github.com/hubthailq/sr4rec.git
 cd sr4rec
 pip install -e ".[dev]"
 pytest -m "not slow"                    # quick self-test (about 30 s)
@@ -79,7 +79,7 @@ downloads SR weights; you provide them.
 
 No dataset or SR weights yet? Build the small shipped demo once (needs your own copy of
 [Oxford-IIIT Pet](https://www.robots.ox.ac.uk/~vgg/data/pets/), the `images.tar.gz` and
-`annotations.tar.gz` archives) and run it end to end in under a minute (see "quickstart" in
+`annotations.tar.gz` archives) and run it end to end in about 5 minutes on a laptop CPU (see "quickstart" in
 [Reproducing the demos](#8-reproducing-the-demos)):
 
 ```bash
@@ -148,7 +148,7 @@ data/<dataset_name>/
 | Column | Required | Rule |
 |---|---|---|
 | `path` | yes | relative to `images/`, with `/`, unique |
-| `label` | yes | class to recognise (identity, species, ...), any string |
+| `label` | yes | class to recognize (identity, species, ...), any string |
 | `split` | no | `train`, `val` or `test` |
 
 `sr4rec init` checks the format (missing columns, missing or unreadable files, duplicate paths,
@@ -239,7 +239,7 @@ there.
 
 | Demo | Dataset | Setting | What it demonstrates |
 |---|---|---|---|
-| `quickstart` | pets_mini | synthetic x4, CPU | a small end-to-end run, under a minute |
+| `quickstart` | pets_mini | synthetic x4, CPU | a small end-to-end run, about 5 min |
 | `d1_earvn` | [EarVN1.0](https://data.mendeley.com/datasets/yws3v3mwx3/4) | native-lr x4, matched, ResNet-18, 3 seeds | main result, results by image size |
 | `d1_earvn_fixed` | EarVN1.0 | as `d1_earvn` with protocol `fixed_recognizer` | what the protocol changes |
 | `d2_lfw` | [LFW](https://www.kaggle.com/datasets/atulanandjha/lfwpeople) (>= 20 images per person) | synthetic x4, matched, ResNet-18, 3 seeds | does PSNR/SSIM predict recognition |
@@ -266,16 +266,16 @@ the example SR weights, built once ([Quick start](#3-quick-start)):
 python scripts/make_examples.py --pets <path_to_oxford_iiit_pet>
 python examples/sr_models/train_tiny_espcn.py
 ```
-After that it retrains on the spot in under a minute.
+After that it retrains on the spot in about 5 minutes on a laptop CPU.
 
 Exit codes: **0** within tolerance, **2** outside tolerance, **3** missing data/weights/checkpoints,
 **1** any other error. Reference hardware: [docs/reference_environment.md](docs/reference_environment.md).
 
-## 9. Limitations, roadmap, contributing, licences
+## 9. Limitations, roadmap, contributing, licenses
 
 **Limitations of v0.1**: closed-set identification only, no verification or open-set protocols, no
-attribute classification; one scale per run; a fixed training recipe (sensitivity checked in demo
-D6); PSNR/SSIM only in synthetic mode; CPU latency only for methods 1 and 2.
+attribute classification; one scale per run; a fixed training recipe; PSNR/SSIM only in synthetic
+mode; CPU latency only for methods 1 and 2.
 
 **Roadmap**: verification protocols, attribute tasks, multiple scales per run, more validated SR
 models and backbones.
@@ -284,10 +284,10 @@ models and backbones.
 model or backbone) and [CHANGELOG.md](CHANGELOG.md) for the versioning policy. FAQ:
 [docs/faq.md](docs/faq.md).
 
-**Licences**: sources and citations of every dataset, weight file and checkpoint are in
+**Licenses**: sources and citations of every dataset, weight file and checkpoint are in
 [DATA_AND_MODEL_LICENSES.md](DATA_AND_MODEL_LICENSES.md).
 
-## 10. Citation, license, acknowledgements
+## 10. Citation and license
 
 If you use SR4Rec, please cite the software (see [CITATION.cff](CITATION.cff)):
 
@@ -296,12 +296,12 @@ If you use SR4Rec, please cite the software (see [CITATION.cff](CITATION.cff)):
   title   = {SR4Rec: A reproducible toolkit for measuring whether super-resolution helps closed-set image recognition},
   author  = {Le Quang, Thai and Truong Hoang, Vinh},
   year    = {2026},
-  version = {0.1.1},
-  url     = {https://github.com/quangthai121121/sr4rec},
+  version = {0.1.0},
+  url     = {https://github.com/hubthailq/sr4rec},
   doi     = {10.5281/zenodo.23008428}
 }
 ```
 
 SR4Rec is released under the [MIT License](LICENSE). It builds on PyTorch, timm, spandrel, NumPy,
 SciPy, statsmodels, scikit-learn, pandas, Pillow, matplotlib, pydantic and Jinja2. SR weights,
-backbone weights and datasets keep their own licences (see DATA_AND_MODEL_LICENSES.md).
+backbone weights and datasets keep their own licenses (see DATA_AND_MODEL_LICENSES.md).

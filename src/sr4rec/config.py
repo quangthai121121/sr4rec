@@ -366,7 +366,7 @@ class Config(_Strict):
             "built with this SR model recognize better?\"",
             "fixed_recognizer : one recognizer per backbone and seed, trained on HR images (synthetic) or "
             "bicubic-upscaled images (native-lr); only the test images pass through SR. Answers: \"does adding SR "
-            "in front of an existing recognizer help?\" Much cheaper.",
+            "in front of an existing recognizer help?\" Fewer recognizer trainings.",
         ]))
     split: SplitConfig = Field(default_factory=SplitConfig, json_schema_extra={"section": "2. Train / val / test split"})
     sr: list[SRModelConfig] = Field(default_factory=list, json_schema_extra={"section": "3. SR models"})

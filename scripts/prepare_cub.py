@@ -1,4 +1,4 @@
-"""Convert CUB-200-2011 to the SR4Rec format for demos D2, D5 and D6, keeping the official split.
+"""Convert CUB-200-2011 to the SR4Rec format for demo D3 (`d3_cub`), keeping the official split.
 
 Output: <out>/images/<class folder>/<file>.jpg and <out>/labels.csv (path,label,split with
 train/test from train_test_split.txt; SR4Rec moves split.val_from_train of train to val).

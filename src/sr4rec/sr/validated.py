@@ -1,11 +1,11 @@
-"""The SR weight files validated by SR4Rec (see README, "Validated SR models")."""
+"""The SR weight files validated by SR4Rec (see docs/adding_sr_models.md)."""
 
 from __future__ import annotations
 
 REAL_WORLD = "real-world degradation"
 BICUBIC = "bicubic degradation"
 
-# SHA-256 -> information. File names are the official ones; download links are in the README.
+# SHA-256 -> information. File names are the official ones; download links are in docs/adding_sr_models.md.
 VALIDATED_WEIGHTS = {
     "4fa0d38905f75ac06eb49a7951b426670021be3018265fd191d2125df9d682f1": {
         "file": "RealESRGAN_x4plus.pth", "model": "Real-ESRGAN x4plus", "trained_for": REAL_WORLD},

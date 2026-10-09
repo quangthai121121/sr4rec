@@ -5,32 +5,7 @@ the configuration format; every change is listed here, and old configurations fa
 message instead of being read differently. Report numbers only change between versions when this
 file says so.
 
-## [0.1.2] - unreleased
-
-### Added
-- `requirements.lock`, a pinned snapshot of one known-working dependency set, and real
-  reference-machine values (CPU, OS, PyTorch/CUDA, GPU) in `docs/reference_environment.md`.
-- Frozen expected results for the `quickstart` demo, so `sr4rec reproduce quickstart` grades
-  against real tolerances instead of always reporting that the demo is not frozen.
-
-### Fixed
-- `scripts/freeze_expected.py` crashed with a YAML `RepresenterError` when a metric value was a
-  numpy scalar instead of a native Python float; values are now converted before being written.
-
-## [0.1.1] - 2026-09-28
-
-### Added
-- Published recognizer checkpoints for `d1_earvn`, `d1_earvn_fixed`, `d2_lfw` and `d3_cub`,
-  fetchable with `scripts/fetch_checkpoints.py <demo>`, so `sr4rec reproduce <demo> --eval-only`
-  works without retraining.
-
-### Fixed
-- Windows: a test asserted a POSIX-style dataset path instead of accepting the platform-native
-  separator, and another read a report file without an explicit encoding, which failed on the
-  default Windows code page for non-ASCII report characters. Also added explicit UTF-8 encoding
-  to the split cache key file and the `/proc/cpuinfo` read for consistency.
-
-## [0.1.0] - 2026-09-28
+## [0.1.0] - 2026-10-10
 
 ### Added
 - Commands `sr4rec init`, `sr4rec run [--dry-run]` and `sr4rec reproduce <demo> [--eval-only]`.
@@ -47,3 +22,10 @@ file says so.
 - Device priority CUDA > Apple GPU (MPS) > CPU; out-of-memory fallbacks (automatic SR tiling,
   gradient accumulation, smaller evaluation batches, CPU as a last resort) so that runs never stop
   because the GPU memory is full.
+- `requirements.lock`, a pinned snapshot of one known-working dependency set, and real
+  reference-machine values (CPU, OS, PyTorch/CUDA, GPU) in `docs/reference_environment.md`.
+- Frozen expected results for every shipped demo, so `sr4rec reproduce <demo>` grades against real
+  tolerances.
+- Published recognizer checkpoints for `d1_earvn`, `d1_earvn_fixed`, `d2_lfw` and `d3_cub`,
+  fetchable with `scripts/fetch_checkpoints.py <demo>`, so `sr4rec reproduce <demo> --eval-only`
+  works without retraining.

@@ -8,4 +8,4 @@ labels: enhancement
 
 **Why the current version does not allow it**
 
-**For a new validated model:** download link, licence, and the checks listed in CONTRIBUTING.md
+**For a new validated model:** download link, license, and the checks listed in CONTRIBUTING.md

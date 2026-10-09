@@ -5,7 +5,7 @@ defaults:
   data_root: data
   weights_root: weights
 notes: python scripts/prepare_lfw.py --lfw <path_to_lfw> --out data/lfw. Put the four validated SR weight files
-  in the weights folder (README, 'Validated SR models').
+  in the weights folder (docs/adding_sr_models.md).
 config:
   dataset: '{data_root}/lfw'
   mode: synthetic

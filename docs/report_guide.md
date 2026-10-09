@@ -37,7 +37,7 @@ accuracy significantly, on how many backbones. Then come the same 11 numbered se
 Accuracy: one decimal; Delta: signed (`+0.4`, `−3.2`); p: two significant digits, `<0.001` below
 0.001; large counts with thousands separators.
 
-## Limits to keep in mind
+## Limits
 
 - `native-lr` has no HR reference: no PSNR/SSIM and no HR upper bound.
 - Public SR weights were trained on natural images and may not match your data; the report says

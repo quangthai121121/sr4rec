@@ -1,4 +1,4 @@
-"""Convert LFW to the SR4Rec format for demo D1: people with at least N images (default 20).
+"""Convert LFW to the SR4Rec format for demo D2 (`d2_lfw`): people with at least N images (default 20).
 
 Output: <out>/images/<Person>/<file>.jpg (copied unchanged) and <out>/labels.csv (path,label).
 The split is created by SR4Rec from the configured ratios.

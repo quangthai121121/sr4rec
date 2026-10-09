@@ -5,7 +5,7 @@ Thank you for helping. Bug reports, documentation fixes and new validated models
 ## Development setup
 
 ```bash
-git clone https://github.com/quangthai121121/sr4rec.git
+git clone https://github.com/hubthailq/sr4rec.git
 cd sr4rec
 pip install -e ".[dev]"
 pre-commit install
@@ -27,7 +27,7 @@ pull request with a small experiment.
 
 ## Adding a validated SR model
 
-1. The weights are publicly downloadable from the authors, with a licence that allows research use.
+1. The weights are publicly downloadable from the authors, with a license that allows research use.
 2. spandrel loads them (method 1); otherwise provide a method-2 module under `examples/`.
 3. The output of SR4Rec matches the authors' inference script on 20 images (mean absolute
    difference below 1/255); for bicubic-degradation models, PSNR on Set5 and Set14 (Y channel,
@@ -38,7 +38,7 @@ pull request with a small experiment.
 ## Adding a validated backbone
 
 The timm model trains with the fixed recipe on `pets_mini` and one of the shipped demo datasets without changes,
-its CPU latency is measured, and its licence allows research use. Add it to
+its CPU latency is measured, and its license allows research use. Add it to
 `VALIDATED_BACKBONES` in `src/sr4rec/config.py`.
 
 ## Maintenance

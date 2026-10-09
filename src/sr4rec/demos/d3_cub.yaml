@@ -5,7 +5,7 @@ defaults:
   data_root: data
   weights_root: weights
 notes: python scripts/prepare_cub.py --cub <path_to_CUB_200_2011> --out data/cub. Put the four validated SR weight
-  files in the weights folder (README, 'Validated SR models').
+  files in the weights folder (docs/adding_sr_models.md).
 config:
   dataset: '{data_root}/cub'
   mode: synthetic

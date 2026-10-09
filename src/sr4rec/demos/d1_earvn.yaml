@@ -5,7 +5,7 @@ defaults:
   data_root: data
   weights_root: weights
 notes: python scripts/prepare_earvn.py --earvn <path_to_EarVN1.0> --out data/earvn. Put the four validated SR weight
-  files in the weights folder (README, 'Validated SR models').
+  files in the weights folder (docs/adding_sr_models.md).
 config:
   dataset: '{data_root}/earvn'
   mode: native-lr

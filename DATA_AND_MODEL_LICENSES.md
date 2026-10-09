@@ -1,4 +1,4 @@
-# Data and model licences
+# Data and model licenses
 
 The SR4Rec source code is MIT-licensed. Datasets, SR weights, backbone weights and recognizer
 checkpoints keep their own terms, listed here. SR4Rec does not redistribute third-party images or
@@ -10,9 +10,9 @@ Check each official page for the current terms before use.
 | Dataset | Used for | Terms (as stated by the source; verify) | Citation |
 |---|---|---|---|
 | Oxford-IIIT Pet | `pets_mini`, quickstart | CC BY-SA 4.0 | Parkhi et al., CVPR 2012 |
-| EarVN1.0 | `earvn_mini`, demo D3 | all rights reserved; no commercial use or redistribution | Hoang, Data in Brief 2019 |
-| LFW | `lfw_mini`, demo D1 | no licence stated on the official page; biometric data | Huang et al., UMass TR 07-49, 2007 |
-| CUB-200-2011 | demos D2, D5, D6 | research use; images belong to their photographers (Flickr) | Wah et al., Caltech TR CNS-TR-2011-001 |
+| EarVN1.0 | `earvn_mini`, `d1_earvn`, `d1_earvn_fixed` | all rights reserved; no commercial use or redistribution | Hoang, Data in Brief 2019 |
+| LFW | `lfw_mini`, `d2_lfw` | no license stated on the official page; biometric data | Huang et al., UMass TR 07-49, 2007 |
+| CUB-200-2011 | `d3_cub` | research use; images belong to their photographers (Flickr) | Wah et al., Caltech TR CNS-TR-2011-001 |
 | TinyFace (documentation only) | none shipped | no terms stated; contact the authors | Cheng et al., ACCV 2018 |
 
 Face images are biometric data: use them for research only and follow the data-protection rules
@@ -29,7 +29,7 @@ that apply to you. No face image is included in this repository.
 ## Backbone weights
 
 ImageNet-pretrained weights are downloaded by timm from Hugging Face; each model card states its
-licence (ResNet-18, MobileNetV3-Small and ConvNeXt-Tiny are released under Apache-2.0 in timm).
+license (ResNet-18, MobileNetV3-Small and ConvNeXt-Tiny are released under Apache-2.0 in timm).
 
 ## Recognizer checkpoints (published for `--eval-only`)
 

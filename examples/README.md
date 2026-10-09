@@ -10,7 +10,7 @@ Every example runs on a CPU. Run all commands from the repository root.
 | evaluate natively low-resolution images | `configs/03_native_lr.yaml` |
 | screen SR models cheaply (`fixed_recognizer`) | `configs/04_fixed_recognizer.yaml` |
 | set my own train/val/test ratios | `configs/05_split_ratios.yaml` |
-| plug in my own PyTorch SR class | `configs/06_sr_module.yaml`, `sr_models/tiny_espcn.py` |
+| use my own PyTorch SR class | `configs/06_sr_module.yaml`, `sr_models/tiny_espcn.py` |
 | use SR images made by another tool | `configs/07_sr_images.yaml`, `sr_images/make_sr_images.py` |
 | try face identity recognition | `configs/08_faces_lfw.yaml` (read the privacy note) |
 | convert my dataset to `images/` + `labels.csv` | `dataset_conversion/` |
@@ -18,7 +18,7 @@ Every example runs on a CPU. Run all commands from the repository root.
 ## Sample data
 
 The samples are small subsets of real public datasets. They are rebuilt from your own downloads,
-so that SR4Rec never redistributes images whose licence does not allow it:
+so that SR4Rec never redistributes images whose license does not allow it:
 
 ```bash
 python scripts/make_examples.py --pets <path_to_oxford_iiit_pet>   # data/pets_mini   (~2 min)
@@ -27,7 +27,7 @@ python scripts/make_examples.py --lfw <path_to_lfw>                # data/lfw_mi
 python examples/sr_models/train_tiny_espcn.py                      # example SR weights (~3 min)
 ```
 
-Each subset folder has a README with its source, licence and citation.
+Each subset folder has a README with its source, license and citation.
 
 ## Dataset conversion scripts
 
