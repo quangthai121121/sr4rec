@@ -79,8 +79,8 @@ downloads SR weights; you provide them.
 
 No dataset or SR weights yet? Build the small shipped demo once (needs your own copy of
 [Oxford-IIIT Pet](https://www.robots.ox.ac.uk/~vgg/data/pets/), the `images.tar.gz` and
-`annotations.tar.gz` archives) and run it end to end in under a minute — see "quickstart" in
-[Reproducing the demos](#8-reproducing-the-demos):
+`annotations.tar.gz` archives) and run it end to end in under a minute (see "quickstart" in
+[Reproducing the demos](#8-reproducing-the-demos)):
 
 ```bash
 mkdir oxford_pet && cd oxford_pet
@@ -258,7 +258,7 @@ sr4rec reproduce d1_earvn                        # level 2: full re-training on 
 with code 3 and writes the demo configuration to `runs/<demo>_config.yaml`, which you can then run
 with `sr4rec run`.
 
-`sr4rec reproduce quickstart` needs no downloaded checkpoints — only the `pets_mini` dataset and
+`sr4rec reproduce quickstart` needs no downloaded checkpoints, only the `pets_mini` dataset and
 the example SR weights, built once ([Quick start](#3-quick-start)):
 ```bash
 python scripts/make_examples.py --pets <path_to_oxford_iiit_pet>

@@ -1,26 +1,27 @@
 # Reading the report
 
-`runs/<run_name>/report.md` is the file to read first. It has the same 11 sections in every run.
+`runs/<run_name>/report.md` is the file to read first. Its title is followed by an **Answer**: at
+most three sentences generated from the verdicts, saying which SR models improved or reduced Rank-1
+accuracy significantly, on how many backbones. Then come the same 11 numbered sections in every run:
 
-1. **Answer** (top of the file): at most three sentences generated from the verdicts: which SR
-   models improved or reduced Rank-1 accuracy significantly, on how many backbones.
-2. **Summary**: per backbone, the SR model with the highest mean Rank-1, its Delta and verdict.
-3. **Setup**: dataset, mode, protocol, split (declared ratios and actual counts), recognizer input,
+1. **Summary**: per backbone, the SR model with the highest mean Rank-1, its Delta and verdict.
+2. **Setup**: dataset, mode, protocol, split (declared ratios and actual counts), recognizer input,
    training recipe, seeds, statistics and device; the SR models with the degradation they were
    trained for, their file and SHA-256.
-4. **Main results**: Rank-1 mean ± sd over seeds, Delta vs bicubic, 95% CI, Holm-adjusted p, same
+3. **Main results**: Rank-1 mean ± sd over seeds, Delta vs bicubic, 95% CI, Holm-adjusted p, same
    sign, verdict. The best value per backbone is bold; the baseline row and (synthetic) the HR upper
    bound are labelled.
-5. **Rank-5, CMC, precision, recall, F1**: descriptive metrics and the CMC plot.
-6. **Results by image size**: Delta and verdict per size bin; bins with fewer than 50 test images
+4. **Rank-5, CMC, precision, recall, F1**: descriptive metrics and the CMC plot.
+5. **Results by image size**: Delta and verdict per size bin; bins with fewer than 50 test images
    show `insufficient data (n)`.
-7. **Image quality vs recognition** (synthetic only): PSNR/SSIM next to Rank-1 and F1, to show
+6. **Image quality vs recognition** (synthetic only): PSNR/SSIM next to Rank-1 and F1, to show
    whether the best-looking SR model is also the best for recognition.
-8. **CPU latency**.
-9. **Visual comparisons**: two embedded panels; all panels are in `comparisons/`.
-10. **Warnings and notes**: domain mismatch of the SR weights, real-world models on bicubic LR
-    images, the `fixed_recognizer` caveat, small size bins, converted images, experimental backbones.
-11. **How to read this report** and **Reproducibility**.
+7. **CPU latency**.
+8. **Visual comparisons**: two embedded panels; all panels are in `comparisons/`.
+9. **Warnings and notes**: domain mismatch of the SR weights, real-world models on bicubic LR
+   images, the `fixed_recognizer` caveat, small size bins, converted images, experimental backbones.
+10. **How to read this report**.
+11. **Reproducibility**.
 
 ## Verdict rules
 

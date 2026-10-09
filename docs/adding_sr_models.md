@@ -82,6 +82,11 @@ file and of the weights are written to `fingerprint.yaml`.
 
 ## Validated SR models
 
+These weight files have been checked against the authors' own inference script and, for
+bicubic-degradation models, against the PSNR reported in their paper (criteria and process in
+`CONTRIBUTING.md`); SR4Rec labels their training degradation automatically by file hash. Any other
+SR model still works (see the three methods above); it is shown as "unknown" instead.
+
 | Model | File | Trained for | SHA-256 |
 |---|---|---|---|
 | Real-ESRGAN x4plus | `RealESRGAN_x4plus.pth` | real-world degradation | `4fa0d38905f75ac06eb49a7951b426670021be3018265fd191d2125df9d682f1` |
