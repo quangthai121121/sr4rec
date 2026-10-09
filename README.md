@@ -6,7 +6,7 @@
 
 **Does placing a super-resolution (SR) model in front of a recognizer improve closed-set
 recognition, compared with plain bicubic upscaling?** SR4Rec answers this question for your own
-dataset and your own SR models with one configuration file and one command, under a fixed,
+dataset and your own SR models with one configuration file and three commands, under a fixed,
 statistically sound protocol, and writes a report that can be read on its own.
 
 ## Contents

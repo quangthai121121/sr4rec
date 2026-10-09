@@ -119,8 +119,8 @@ def render(title: str, cells: list[Cell], synthetic: bool, out: Path) -> list[st
                                    linestyle=ls, clip_on=False))
         lines = caption_lines(cell, synthetic)
         texts += lines
-        ax.set_xlabel("\n".join(lines), fontsize=7.5)
-    fig.suptitle(title, fontsize=8.5)
+        ax.set_xlabel("\n".join(lines), fontsize=9.5)
+    fig.suptitle(title, fontsize=10)
     out.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(out)
     plt.close(fig)
