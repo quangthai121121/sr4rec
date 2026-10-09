@@ -233,7 +233,9 @@ Report sections and glossary: [docs/report_guide.md](docs/report_guide.md); meth
 
 ## 8. Reproducing the demos
 
-Demo definitions and expected results are shipped with the package (`sr4rec reproduce list`).
+Demo definitions and expected results are shipped with the package (`sr4rec reproduce list`). Run
+every command below from the repository root; `data/`, `weights/` and `checkpoints/` are created
+there.
 
 | Demo | Dataset | Setting | What it demonstrates |
 |---|---|---|---|
@@ -294,7 +296,7 @@ If you use SR4Rec, please cite the software (see [CITATION.cff](CITATION.cff)):
   title   = {SR4Rec: A reproducible toolkit for measuring whether super-resolution helps closed-set image recognition},
   author  = {Le Quang, Thai and Truong Hoang, Vinh},
   year    = {2026},
-  version = {0.1.2},
+  version = {0.1.1},
   url     = {https://github.com/quangthai121121/sr4rec},
   doi     = {10.5281/zenodo.23008428}
 }
